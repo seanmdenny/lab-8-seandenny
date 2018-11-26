@@ -9,4 +9,4 @@ output: pdf_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-##Lab 8 - Linear Regression
+##Lab 8 - Linear Regression in R
