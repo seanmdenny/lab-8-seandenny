@@ -37,17 +37,15 @@ salmon_lr
 
 Intercept is -14982940. Year is 7550.
 
-Model equation:
-
-Import(tons) = -14982940 + 7550.
+Model equation: **Import(tons) = 7550*year - 14982940**
 
 • What does the slope mean in the context of this model?
 
-ANSWER: 
+ANSWER: It meas that every year the amount of imported salmon increases by 7,550 tons.
 
 • What does the y-intercept mean in the context of this model? Why is that concerning? What does this mean about extrapolating this model for past values?
 
-ANSWER:
+ANSWER: It means that at year 0, we would be importing -14,982,940 tons of salmon. This is concerning because we can't be importing negative values (we're not considering that as exporting here). This means that we can't predict import values past a certain year in our dataset. Does this mean the model makes sense? Maybe yes, but just for a limited range or predictions going forward.
 
 ```{r, Model diagnostics}
 par(mfrow = c(2,2))
@@ -56,11 +54,11 @@ plot(salmon_lr)
 
 • Do residuals appear normally distributed?
 
-ANSWER:
+ANSWER: They do not. The residuals appear to increase as the fitted values increase.
 
 • Any concerns about heteroscedasticity or outliers?
 
-ANSWER: 
+ANSWER: Yes, it appears the data is heteroscedastic. We also have three outliers. Outlier 25 appears to be particularly far-out outlier.
 
 ```{r}
 summary(salmon_lr)
@@ -68,20 +66,20 @@ summary(salmon_lr)
 
 • Does year significantly predict salmon imports?
 
-ANSWER:
+ANSWER: Yes.
 
 • What does the R2 value actually mean in words?
 
-ANSWER:
+ANSWER: R2 descibes the proportion of variance in salmon imports (in tons) that is desribed by the year and the intercept (the model).
 
 • What proportion of the variance in salmon imports is NOT explained by year?
 
-ANSWER:
+ANSWER: 1-0.9458 = 0.0542 = ~5.4%.
 
 ```{r, final graph}
 salmon_final_graph <- ggplot(salmon, aes(x = year, y = salmon_fresh)) +
   geom_point() +
-  geom_smooth(method = lm, se = TRUE, size = 0.5, color = "gray20") +
+  geom_smooth(method = lm, se = TRUE, size = 0.5, color = "gray20") + #appeas as gray in output
   theme_bw() +
   scale_x_continuous(expand = c(0,0), limits = c(1990, 2017)) +
   labs(x = "Year", y = "U.S. Annual Fresh Salmon Imports\n(1,000 pounds)")
@@ -115,11 +113,11 @@ salmon_cor
 
 Pearson’s r for the year vs. salmon imports linear trend:
 
-ANSWER:
+ANSWER: 0.974
 
 Would you describe this as a weak/strong negative/positive correlation?
 
-ANSWER: 
+ANSWER: Strong positive correlation.
 
 Using the doc *Communicating Results of Basic Linear Regression* (posted on GauchoSpace) as a guide, write a final 1 - 2 sentence statement describing the results of your linear regression and Pearson’s r findings.
 
