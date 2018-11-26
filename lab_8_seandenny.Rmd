@@ -1,0 +1,12 @@
+---
+title: "lab-8-seandenny"
+author: "Sean Denny"
+date: "11/26/2018"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+##Lab 8 - Linear Regression
